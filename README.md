@@ -12,9 +12,10 @@ Recorded from remote with FCC ID: A25-TX005R
 
 # Protocol
 
-Every messages remotes sends repeated 5 times. Every message has remote ID + command + ending
+Every messages remotes sends 5 times, with pause between message 850us. 
 
-* Remote ID is unique 6 bytes identifier every remote has. Fan learn this identified during pairing session. 
+Every message has remote ID + command + ending:
+* Remote ID is unique 6 bytes identifier every remote has. Fan learn this identifier during pairing session. 
 * Command is an actual command for the fan. See table below
 * Ending is 9 bits `0b001011001`. They are always the same in every message.
 
@@ -33,5 +34,5 @@ Every messages remotes sends repeated 5 times. Every message has remote ID + com
  Let's assume you have fan you paired earlier with remote ID `0x96d97db34b24`. Then to send a command to toggle light you send `0x96d97db34b24` + `0x92cb` + `0b001011001`. Which in binary format will be `0b1001011011011001011111011011001101001011001001001001001011001011001011001`
 
 
-
-
+# RUN
+`poetry run main`
