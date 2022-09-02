@@ -30,6 +30,9 @@ Every message has remote ID + command + ending:
 | Turn off fan | 0xb6cb |
 | Toggle light on/off | 0x92cb |
 
+## Remote ID
+Can be any value between `0x96db2c96592d` and `0x136db2c96592b`, including these values. Maybe range even bigger, but I don't want to spend time finding precise ranges. I can confirm that `0xFFFFFFFFFFFF` doesn't work as well as `0xb6db2c96592c`.
+
 ## Example
  Let's assume you have fan you paired earlier with remote ID `0x96d97db34b24`. Then to send a command to toggle light you send `0x96d97db34b24` + `0x92cb` + `0b001011001`. Which in binary format will be `0b1001011011011001011111011011001101001011001001001001001011001011001011001`
 
