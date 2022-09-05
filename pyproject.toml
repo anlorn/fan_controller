@@ -7,6 +7,7 @@ authors = ["Anton Tinyakov <anlorn@anlorn.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 "RPi.GPIO" = "^0.7.1"
+Flask = "^2.2.2"
 
 [tool.poetry.dev-dependencies]
 ipython = "^8.4.0"

@@ -31,11 +31,12 @@ Every message has remote ID + command + ending:
 | Toggle light on/off | 0x92cb |
 
 ## Remote ID
-Can be any value between `0x96db2c96592d` and `0x136db2c96592b`, including these values. Maybe range even bigger, but I don't want to spend time finding precise ranges. I can confirm that `0xFFFFFFFFFFFF` doesn't work as well as `0xb6db2c96592c`.
+Can be any value between `0x71231248b85b` and `0x136db2c96592b`, including these values. Maybe range even bigger, but I don't want to spend time finding precise ranges. I can confirm that `0xFFFFFFFFFFFF` doesn't work as well as `0xb6db2c96592c`.
 
 ## Example
  Let's assume you have fan you paired earlier with remote ID `0x96d97db34b24`. Then to send a command to toggle light you send `0x96d97db34b24` + `0x92cb` + `0b001011001`. Which in binary format will be `0b1001011011011001011111011011001101001011001001001001001011001011001011001`
 
 
 # RUN
-`poetry run main`
+`poetry run main` will start http server, first add an remote by calling `'curl -XPOST  -H'Content-Type: application/json' http://172.17.0.1:8081/new/remote -d'{"remote_name":"befroom_fan","remote_id":"0X00000000000"}'`. You can add few different remotes.
+After you added remotes, you can send them commands(see `protocol.py`) for example `curl -XPOST http://172.17.0.1:8081/command/bedroom_fan/light_toggle`
